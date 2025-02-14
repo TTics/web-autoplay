@@ -7,8 +7,26 @@
 </head>
 <body>
     <h1>If you see this, the page is working!</h1>
-    <audio autoplay>
+    <audio id="myAudio" autoplay playsinline preload="auto">
         <source src="y2mate.com - Ls theme A.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- Add a fallback JavaScript solution -->
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('myAudio');
+            var playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay started successfully
+                })
+                .catch(error => {
+                    // Auto-play was prevented
+                    console.log("Autoplay was prevented. Please add a play button.");
+                });
+            }
+        }
+    </script>
 </body>
 </html>
