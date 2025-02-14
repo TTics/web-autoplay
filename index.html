@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoplay Audio</title>
+</head>
+<body>
+    <audio id="player" autoplay>
+        <source src="https://ucd4cad463e33319de6cc02c70c1.dl.dropboxusercontent.com/cd/0/inline/CkEpavdSNcL9wIxdMw8gKR7DCsSfPz89yUpiMe7RWBvN1cdvwWKm7ucfCLdHzs5RMq5U8FOVAo0H9bF5fsPSdGati2mBljVumEk7fU0a6GR1JA-br2Ifli4T_n_qShIjqBvFo0eAlGOnWNf4ZoiIlrbz/file#" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let audio = document.getElementById("player");
+            audio.muted = true; // Start muted (some browsers require this)
+            audio.play();
+            setTimeout(() => { audio.muted = false; }, 500); // Unmute after 0.5 sec
+        });
+    </script>
+</body>
+</html>
